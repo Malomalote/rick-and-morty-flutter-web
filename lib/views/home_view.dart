@@ -23,27 +23,24 @@ class HomeView extends StatelessWidget {
           backgroundColor: Environment.color1,
           actions: [
             IconButton(
-                icon: Icon(Icons.question_answer),
+                icon: const Icon(
+                  Icons.question_answer,
+                  color: Colors.black87,
+                ),
                 onPressed: () {
                   showDialog(
                       context: context,
                       builder: (_) {
-                        return CreditsModal();
+                        return const CreditsModal();
                       });
-                })
-
-            //   showModalBottomSheet(
-
-            //     backgroundColor: Colors.transparent,
-            //     context: context, builder: (_)=> const CreditsModal());
-            // },
+                }),
           ],
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.all(40.0),
                 child: FittedBox(
@@ -60,16 +57,7 @@ class HomeView extends StatelessWidget {
                 text: 'Start',
                 fontSize: 40,
               ),
-              SizedBox(height: 30),
-              // CustomButton(
-              //   route: Flurorouter.locationsRAMRoute,
-              //   text: 'Locations',
-              // ),
-              // SizedBox(height: 22),
-              // CustomButton(
-              //   route: Flurorouter.chaptersRoute,
-              //   text: 'Chapters',
-              // ),
+              const SizedBox(height: 30),
             ],
           ),
         ),

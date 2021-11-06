@@ -7,19 +7,11 @@ import 'package:rick_and_morty/views/no_page_found_view.dart';
 
 class Handlers {
   static Handler home = Handler(handlerFunc: (context, params) {
-    return HomeView();
+    return const HomeView();
   });
 
-  // static Handler locationsRAM = Handler(handlerFunc: (context, params) {
-  //   return HomeLocationsView();
-  // });
-
-  // static Handler chapters = Handler(handlerFunc: (context, params) {
-  //   return HomeChaptersView();
-  // });
-
   static Handler characters = Handler(handlerFunc: (context, params) {
-    return HomeCharactersView();
+    return const HomeCharactersView();
   });
 
   static Handler character = Handler(handlerFunc: (context, params) {
@@ -29,7 +21,7 @@ class Handlers {
         return CharacterView(id: params['id']!.first);
       } else {
         if (numCharacter < 1 || numCharacter > RickAndMortApi.maxCharacters) {
-          return NoPageFoundView();
+          return const NoPageFoundView();
         } else {
           return CharacterView(id: params['id']!.first);
         }

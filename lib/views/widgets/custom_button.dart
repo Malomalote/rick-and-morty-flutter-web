@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rick_and_morty/services/navigation_service.dart';
 
-
 class CustomButton extends StatelessWidget {
   final String route;
   final String text;
@@ -14,7 +13,6 @@ class CustomButton extends StatelessWidget {
       required this.route,
       required this.text,
       this.color = const Color(0x607D8Bff),
-      // this.textColor=Colors.white,
       this.textColor = Colors.black87,
       this.fontSize = 26})
       : super(key: key);

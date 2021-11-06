@@ -10,20 +10,18 @@ class NoPageFoundView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       color: Environment.backgroundColor,
       child: Center(
           child: Column(
-            
-            mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             '404 No page found',
             style: GoogleFonts.montserratAlternates(
                 fontSize: 50, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           CustomButton(route: Flurorouter.homeRoute, text: 'Go to home page')
         ],
       )),

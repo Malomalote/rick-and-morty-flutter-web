@@ -9,34 +9,31 @@ class CharacterCard extends StatelessWidget {
   final Character character;
   const CharacterCard({Key? key, required this.character}) : super(key: key);
 
+  @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
-      
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Environment.color2,
         ),
-        margin: EdgeInsets.all(8),
+        margin: const EdgeInsets.all(8),
         width: 450,
         height: 180,
         child: Row(
           children: [
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
               child: Hero(
-                
-                 tag: 'imagen${character.id}',
+                tag: 'imagen${character.id}',
                 child: Image.network(
                   character.image,
                   height: 110.0,
                 ),
               ),
             ),
-    
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Expanded(
               child: Center(
                 child: Column(
@@ -55,7 +52,7 @@ class CharacterCard extends StatelessWidget {
                         fit: BoxFit.contain,
                         child: Text(
                           character.location.name,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         )),
                   ],
                 ),
@@ -64,7 +61,9 @@ class CharacterCard extends StatelessWidget {
           ],
         ),
       ),
-      onTap: (){NavigationService.navigateTo('/character/${character.id}');},
+      onTap: () {
+        NavigationService.navigateTo('/character/${character.id}');
+      },
     );
   }
 }

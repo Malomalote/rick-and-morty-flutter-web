@@ -78,9 +78,7 @@ class Character {
   String name;
   String status;
   String species;
-  // Species species;
   String type;
-  // Gender gender;
   String gender;
   LocationRAM origin;
   LocationRAM location;
@@ -108,17 +106,13 @@ class Character {
     return _hashCode;
   }
 
- 
-
   factory Character.fromMap(Map<String, dynamic> json) => Character(
         id: json["id"],
         name: json["name"],
         status: json["status"],
-        // species: speciesValues.map[json["species"]]!,
         species: json["species"],
         type: json["type"],
         gender: json["gender"],
-        // gender: genderValues.map[json["gender"]]!,
         origin: LocationRAM.fromMap(json["origin"]),
         location: LocationRAM.fromMap(json["location"]),
         image: json["image"],
@@ -131,11 +125,9 @@ class Character {
         "id": id,
         "name": name,
         "status": status,
-        // "species": speciesValues.reverse[species],
         "species": species,
         "type": type,
         "gender": gender,
-        // "gender": genderValues.reverse[gender],
         "origin": origin.toMap(),
         "location": location.toMap(),
         "image": image,
@@ -144,14 +136,6 @@ class Character {
         "created": created.toIso8601String(),
       };
 }
-
-// enum Gender { MALE, FEMALE, UNKNOWN }
-
-// final genderValues = EnumValues({
-//     "Female": Gender.FEMALE,
-//     "Male": Gender.MALE,
-//     "unknown": Gender.UNKNOWN
-// });
 
 class LocationRAM {
   LocationRAM({
@@ -177,32 +161,3 @@ class LocationRAM {
         "url": url,
       };
 }
-
-// enum Species { HUMAN, ALIEN }
-
-// final speciesValues = EnumValues({
-//     "Alien": Species.ALIEN,
-//     "Human": Species.HUMAN
-// });
-
-// enum Status { ALIVE, UNKNOWN, DEAD }
-
-// final statusValues = EnumValues({
-//     "Alive": Status.ALIVE,
-//     "Dead": Status.DEAD,
-//     "unknown": Status.UNKNOWN
-// });
-
-// class EnumValues<T> {
-//     Map<String, T> map;
-//     late Map<T, String> reverseMap;
-
-//     EnumValues(this.map);
-
-//     Map<T, String> get reverse {
-//         if (reverseMap == null) {
-//             reverseMap = map.map((k, v) => new MapEntry(v, k));
-//         }
-//         return reverseMap;
-//     }
-// }

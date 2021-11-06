@@ -15,14 +15,14 @@ class CreditsModal extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return AlertDialog(
       backgroundColor: Environment.backgroundColor,
-      content: _alertBody(size: size),
+      content: _AlertBody(size: size),
       actions: [CustomButton(route: Flurorouter.homeRoute, text: 'Close')],
     );
   }
 }
 
-class _alertBody extends StatelessWidget {
-  const _alertBody({
+class _AlertBody extends StatelessWidget {
+  const _AlertBody({
     Key? key,
     required this.size,
   }) : super(key: key);
@@ -35,41 +35,54 @@ class _alertBody extends StatelessWidget {
       child: Center(
         child: Container(
           width: size.width * 2 / 3,
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(30),
           height: size.height * 2 / 3,
           color: Environment.backgroundColor,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-               SizedBox(height: 30),
-              Text('Based on Rick an Morty API',style: GoogleFonts.architectsDaughter(fontSize:28,fontWeight: FontWeight.bold)),
+              const SizedBox(height: 30),
+              Text('Based on Rick an Morty API',
+                  style: GoogleFonts.architectsDaughter(
+                      fontSize: 28, fontWeight: FontWeight.bold)),
               SelectableAutoLinkText(
                 'https://rickandmortyapi.com/',
-                linkStyle: TextStyle(color: Colors.blueAccent,fontSize: 22),
+                linkStyle:
+                    const TextStyle(color: Colors.blueAccent, fontSize: 22),
                 highlightedLinkStyle: TextStyle(
                   color: Colors.blueAccent,
                   backgroundColor: Colors.blueAccent.withAlpha(0x33),
                 ),
                 onTap: (url) => launch(url),
               ),
-            SizedBox(height: 30),
-              Text('Designed and coded by Antonio Miguel Dev. ',style: GoogleFonts.architectsDaughter(fontSize:28,fontWeight: FontWeight.bold)),
+              const SizedBox(height: 30),
+              Text('Github repository',
+                  style: GoogleFonts.architectsDaughter(
+                      fontSize: 28, fontWeight: FontWeight.bold)),
               SelectableAutoLinkText(
-                'antoniomigueldev@gmail.com',
-
-                linkStyle: TextStyle(color: Colors.blueAccent,fontSize: 22),
+                'https://github.com/Malomalote/rick-and-morty-flutter-web',
+                linkStyle:
+                    const TextStyle(color: Colors.blueAccent, fontSize: 22),
                 highlightedLinkStyle: TextStyle(
                   color: Colors.blueAccent,
                   backgroundColor: Colors.blueAccent.withAlpha(0x33),
                 ),
-                onTap: (url) {
-
-                  launch(Uri(scheme: 'mailto',path: url).toString());
-                }
-                
-                // => launch(url.toString()),
+                onTap: (url) => launch(url),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
+              Text('Designed and coded by Antonio Miguel Dev. ',
+                  style: GoogleFonts.architectsDaughter(
+                      fontSize: 28, fontWeight: FontWeight.bold)),
+              SelectableAutoLinkText('antoniomigueldev@gmail.com',
+                  linkStyle:
+                      const TextStyle(color: Colors.blueAccent, fontSize: 22),
+                  highlightedLinkStyle: TextStyle(
+                    color: Colors.blueAccent,
+                    backgroundColor: Colors.blueAccent.withAlpha(0x33),
+                  ), onTap: (url) {
+                launch(Uri(scheme: 'mailto', path: url).toString());
+              }),
+              const SizedBox(height: 30),
             ],
           ),
         ),

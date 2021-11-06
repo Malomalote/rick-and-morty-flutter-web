@@ -1,7 +1,5 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-
 import 'package:rick_and_morty/api/rick_and_morty_api.dart';
 import 'package:rick_and_morty/model/rick_and_morty_model.dart';
 
@@ -15,9 +13,7 @@ class RickAndMortyProvider extends ChangeNotifier {
   RickAndMortyProvider() {
     initCharacters();
     lastPage = 1;
-
     //from https://stackoverflow.com/questions/58459483/unsupported-operation-platform-operatingsystem
-
     try {
       if (Platform.isAndroid || Platform.isIOS) {
         isWeb = false;
@@ -27,7 +23,6 @@ class RickAndMortyProvider extends ChangeNotifier {
     } catch (e) {
       isWeb = true;
     }
-
     if (isWeb) {
       getPageOfCharacters(2);
       getPageOfCharacters(3);
@@ -49,16 +44,6 @@ class RickAndMortyProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
-
-  // getMultipleCharacters(List<int> ids) async {
-  //   final newList = await RickAndMortApi.getMultipleCharacters(ids);
-  //   for (var newCharacter in newList) {
-  //     if (!listCharacters.contains(newCharacter)) {
-  //       listCharacters.add(newCharacter);
-  //     }
-  //   }
-  //   notifyListeners();
-  // }
 
   Character? getCharacter(int id){
     getSingleCharacter(id);
